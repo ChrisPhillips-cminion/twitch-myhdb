@@ -15,3 +15,6 @@ spec:
       containers:
       - name: myhdb
         image: nexus.phillips11.cf:8084/cminion.cf/other/myhdb
+        env: 
+        - name: accesscode
+          value: q819m2wi63tb046x64egdr0u1opji7

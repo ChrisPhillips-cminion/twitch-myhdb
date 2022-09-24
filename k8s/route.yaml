@@ -5,7 +5,7 @@ metadata:
 spec:
   host: myhdb.apps.shipload.phillips11.cf
   port:
-    targetPort: 8000
+    targetPort: 3000
   to:
     kind: Service
     name: myhdb

@@ -4,9 +4,9 @@ metadata:
   name: myhdb
 spec:
   ports:
-  - port: 8000
+  - port: 3000
     protocol: TCP
-    targetPort: 8000
+    targetPort: 3000
   selector:
     app: myhdb
   sessionAffinity: None

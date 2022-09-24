@@ -17,7 +17,7 @@ const opts = {
 		    ]
 };
 
-
+console.log(opts)
 let imageUrl="https://crystal-cdn4.crystalcommerce.com/photos/6791177/medium/cardback.jpg";
 app.get('/', (req, res) => {
 	  let html="<html><script> function timedRefresh(timeoutPeriod) { setTimeout(\"location.reload(true);\",timeoutPeriod); } window.onload = timedRefresh(5000) ;</script><img src="+imageUrl+"/><html>"
@@ -29,19 +29,15 @@ app.listen(port, () => {
 	  console.log(`Example app listening on port ${port}`)
 })
 
-
-
-
-
-
-
-
 // Create a client with our options
 const client = new tmi.client(opts);
 
 // Register our event handlers (defined below)
 client.on('message', onMessageHandler);
 client.on('connected', onConnectedHandler);
+client.on('error', ((e)=>{
+	console.log(e)
+}));
 
 // Connect to Twitch:
 client.connect();
