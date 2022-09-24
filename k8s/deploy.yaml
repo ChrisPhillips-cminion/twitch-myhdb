@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: myhdb
+spec:
+  selector:
+    matchLabels:
+      app: myhdb
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: myhdb
+    spec:
+      containers:
+      - name: myhdb
+        image: nexus.phillips11.cf:8084/cminion.cf/other/myhdb

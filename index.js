@@ -10,7 +10,7 @@ const opts = {
 	options: { debug: true },
 	  identity: {
 		      username: 'cminion',
-		      password: process.env.accesscode;
+		      password: process.env.accesscode
 		    },
 	  channels: [
 		      'that_dabi_guy'

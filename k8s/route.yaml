@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: myhdb
+spec:
+  host: myhdb.apps.shipload.phillips11.cf
+  port:
+    targetPort: 8000
+  to:
+    kind: Service
+    name: myhdb
+    weight: 100
+  wildcardPolicy: None
