@@ -20,7 +20,7 @@ const opts = {
 console.log(opts)
 let imageUrl="https://crystal-cdn4.crystalcommerce.com/photos/6791177/medium/cardback.jpg";
 app.get('/', (req, res) => {
-	  let html="<html><script> function timedRefresh(timeoutPeriod) { setTimeout(\"location.reload(true);\",timeoutPeriod); } window.onload = timedRefresh(5000) ;</script><img src="+imageUrl+"/><html>"
+	  let html="<html><script> function timedRefresh(timeoutPeriod) { setTimeout(\"location.reload(true);\",timeoutPeriod); } window.onload = timedRefresh(2000) ;</script><img src="+imageUrl+"/><html>"
 	  console.log("Displaying "+imageUrl);
 	  res.send(html)
 })
