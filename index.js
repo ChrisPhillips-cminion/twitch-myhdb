@@ -28,7 +28,7 @@ console.log(opts)
 let imageUrl={}
 opts.channels.forEach((chan)=>{
 app.get('/'+chan, (req, res) => {
-	  let html="<html><script> function timedRefresh(timeoutPeriod) { setTimeout(\"location.reload(true);\",timeoutPeriod); } window.onload = timedRefresh(2000) ;</script><img src="+imageUrl[chan]+"/><html>"
+	  let html="<html><script> function timedRefresh(timeoutPeriod) { setTimeout(\"location.reload(true);\",timeoutPeriod); } window.onload = timedRefresh(2000) ;</script><img  width=500  src="+imageUrl[chan]+"/><html>"
 	  console.log("Displaying "+imageUrl[chan]);
 	  res.send(html)
 })
