@@ -63,7 +63,7 @@ function onMessageHandler (target, context, msg, self) {
 
     cardNames.forEach((name)=>{
 	if (commandName.toLowerCase().indexOf(name.toLowerCase()) > -1 ) {
-		client.say(target,cardlist[name])
+		//client.say(target,cardlist[name])
 		imageUrl=cardlist[name]
 	}
     })
