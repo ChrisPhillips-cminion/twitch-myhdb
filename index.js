@@ -25,13 +25,14 @@ const opts = {
 };
 
 console.log(opts)
-let imageUrl="https://crystal-cdn4.crystalcommerce.com/photos/6791177/medium/cardback.jpg";
-app.get('/', (req, res) => {
-	  let html="<html><script> function timedRefresh(timeoutPeriod) { setTimeout(\"location.reload(true);\",timeoutPeriod); } window.onload = timedRefresh(2000) ;</script><img src="+imageUrl+"/><html>"
-	  console.log("Displaying "+imageUrl);
+let imageUrl={}
+opts.channels.forEach((chan)=>{
+app.get('/'+chan, (req, res) => {
+	  let html="<html><script> function timedRefresh(timeoutPeriod) { setTimeout(\"location.reload(true);\",timeoutPeriod); } window.onload = timedRefresh(2000) ;</script><img src="+imageUrl[chan]+"/><html>"
+	  console.log("Displaying "+imageUrl[chan]);
 	  res.send(html)
 })
-
+})
 app.listen(port, () => {
 	  console.log(`Example app listening on port ${port}`)
 })
@@ -50,7 +51,7 @@ client.on('error', ((e)=>{
 client.connect();
 
 // Called every time a message comes in
-function onMessageHandler (target, context, msg, self) {
+function onMessageHandler (chan, context, msg, self) {
   if (self) { return; } // Ignore messages from the bot
 
   // Remove whitespace from chat message
@@ -59,14 +60,16 @@ function onMessageHandler (target, context, msg, self) {
   // If the command is known, let's execute it
   if (commandName === '!dice') {
     const num = rollDice();
-    client.say(target, `You rolled a ${num}`);
+    client.say(chan, `You rolled a ${num}`);
     console.log(`* Executed ${commandName} command`);
   } else {
 
     cardNames.forEach((name)=>{
+	 ///console.log(commandName.toLowerCase()+" - "+name.toLowerCase())
 	if (commandName.toLowerCase().indexOf(name.toLowerCase()) > -1 ) {
-		//client.say(target,cardlist[name])
-		imageUrl=cardlist[name]
+		chanShort=chan.substring(1)
+		console.log('sending to '+chanShort);
+		imageUrl[chanShort]=cardlist[name]
 	}
     })
 
