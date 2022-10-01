@@ -5,7 +5,12 @@ const port = 3000
 
 const tmi = require('tmi.js');
 const cardlist = require('./cardList.json')
-const cardNames = Object.keys(cardlist)
+let cardNames = Object.keys(cardlist)
+
+cardNames.sort(function(a, b){
+  return b.length - a.length;
+});
+
 const opts = {
 	options: { debug: true },
 	  identity: {
