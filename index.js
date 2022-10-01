@@ -8,7 +8,7 @@ const cardlist = require('./cardList.json')
 let cardNames = Object.keys(cardlist)
 
 cardNames.sort(function(a, b){
-  return b.length - a.length;
+  return a.length - b.length;
 });
 
 const opts = {
